@@ -820,12 +820,12 @@ public class LevelsRanks : BasePlugin
                     if (player.Team == (CsTeam)winner)
                     {
                         user.RoundWin++;
-                        expChange = (int)ExperienceSettings.GetExperience("0", "lr_winround");
+                        expChange = (int)ExperienceSettings.GetExperience(StatisticType, "lr_winround");
                     }
                     else
                     {
                         user.RoundLose++;
-                        expChange = (int)ExperienceSettings.GetExperience("0", "lr_loseround");
+                        expChange = (int)ExperienceSettings.GetExperience(StatisticType, "lr_loseround");
                     }
 
                     ApplyExperienceUpdateSync(user, player, expChange,
@@ -969,7 +969,7 @@ public class LevelsRanks : BasePlugin
             var steamIdStr = SteamIdConverter.ConvertToSteamId(player.AuthorizedSteamID.SteamId64);
             if (OnlineUsers.TryGetValue(steamIdStr, out var user))
             {
-                var expChange = (int)ExperienceSettings.GetExperience("0", "lr_bombdefused");
+                var expChange = (int)ExperienceSettings.GetExperience(StatisticType, "lr_bombdefused");
                 ApplyExperienceUpdateSync(user, player, expChange, Localizer["bomb_defused"],
                     Localizer["bomb_defused_color"]);
             }
@@ -987,7 +987,7 @@ public class LevelsRanks : BasePlugin
             var steamIdStr = SteamIdConverter.ConvertToSteamId(player.AuthorizedSteamID.SteamId64);
             if (OnlineUsers.TryGetValue(steamIdStr, out var user))
             {
-                var expChange = (int)ExperienceSettings.GetExperience("0", "lr_bombplanted");
+                var expChange = (int)ExperienceSettings.GetExperience(StatisticType, "lr_bombplanted");
                 ApplyExperienceUpdateSync(user, player, expChange, Localizer["bomb_planted"],
                     Localizer["bomb_planted"]);
             }
@@ -1005,7 +1005,7 @@ public class LevelsRanks : BasePlugin
             var steamIdStr = SteamIdConverter.ConvertToSteamId(player.AuthorizedSteamID.SteamId64);
             if (OnlineUsers.TryGetValue(steamIdStr, out var user))
             {
-                var expChange = (int)ExperienceSettings.GetExperience("0", "lr_hostagerescued");
+                var expChange = (int)ExperienceSettings.GetExperience(StatisticType, "lr_hostagerescued");
                 ApplyExperienceUpdateSync(user, player, expChange, Localizer["hostage_rescued"],
                     Localizer["hostage_rescued_color"]);
             }
